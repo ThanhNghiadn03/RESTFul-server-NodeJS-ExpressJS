@@ -1,0 +1,27 @@
+{
+  "name": "full-backend-zero",
+  "version": "1.0.0",
+  "description": "HoidanIT Fullstack Backend RESTFul Server with Nodejs and ExpressJS (SQL/MongoDB)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThanhNghiadn03/RESTFul-server-NodeJS-ExpressJS.git"
+  },
+  "keywords": [
+    "nodejs",
+    "ExpressJS"
+  ],
+  "author": "Udemy HoiDanIT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThanhNghiadn03/RESTFul-server-NodeJS-ExpressJS/issues"
+  },
+  "homepage": "https://github.com/ThanhNghiadn03/RESTFul-server-NodeJS-ExpressJS#readme",
+  "dependencies": {
+    "express": "4.18.2"
+  }
+}
