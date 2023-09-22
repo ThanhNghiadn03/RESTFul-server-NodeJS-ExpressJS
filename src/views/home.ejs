@@ -1,46 +1,54 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Home</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/home.css'>
-    <link rel="stylesheet" href="css/navbar.css">  
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Home</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='css/home.css'>
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <div class="topnav">
-        <a class="active" href="/">Home</a>
-        <a href="/create">Create</a>
-    </div>
-    <div>
-        <table>
-            <tr>
-              <th>Email</th>
-              <th>Name</th>
-              <th>City</th>
-            </tr>
-            <tr>
-              <td>Peter</td>
-              <td>Griffin</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Lois</td>
-              <td>Griffin</td>
-              <td>$150</td>
-            </tr>
-            <tr>
-              <td>Joe</td>
-              <td>Swanson</td>
-              <td>$300</td>
-            </tr>
-            <tr>
-              <td>Cleveland</td>
-              <td>Brown</td>
-              <td>$250</td>
-            </tr>
-          </table>
-    </div>
+  <div class="topnav">
+    <a class="active" href="/">Home</a>
+    <a href="/create">Create</a>
+  </div>
+  <div>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>City</th>
+        <th>Action</th>
+      </tr>
+      <%for(let i=0; i<listUser.length ; i++) {%>
+        <tr>
+          <td>
+            <%=listUser[i].id%>
+          </td>
+          <td>
+            <%=listUser[i].name%>
+          </td>
+          <td>
+            <%=listUser[i].email%>
+          </td>
+          <td>
+            <%=listUser[i].city%>
+          </td>
+          <td><button><a href="/edit?id=<%=listUser[i].id%>">Edit</a></button></td>
+          <td>
+            <button>
+              <a href="/delete?id=<%=listUser[i].id%>">Delete</a>
+            </button>
+          </td>
+        </tr>
+        <%}%>
+    </table>
+  </div>
 </body>
+
 </html>
