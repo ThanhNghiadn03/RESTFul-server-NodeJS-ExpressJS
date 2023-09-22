@@ -5,37 +5,42 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Home</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/home.css'>  
+    <link rel='stylesheet' type='text/css' media='screen' href='css/home.css'>
+    <link rel="stylesheet" href="css/navbar.css">  
 </head>
 <body>
     <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+        <a class="active" href="/">Home</a>
+        <a href="/create">Create</a>
     </div>
-    <div class="form-user">
-        <!-- <h2>Add new users</h2> -->
-        <form action="/create-user" method="post">
-            <fieldset>
-                <legend>Form add new users</legend>
-                <div class="input-group">
-                    <label>Email: </label>
-                    <input type="text" name="email"/>
-                </div>
-                <div class="input-group">
-                    <label>Name: </label>
-                    <input type="text" name="name"/>
-                </div>
-                <div class="input-group">
-                    <label>City: </label>
-                    <input type="text" name="city"/>
-                </div>
-                <div class="input-group" id="save-user">
-                    <button type="submit">save</button>
-                </div>
-            </fieldset>
-        </form>
+    <div>
+        <table>
+            <tr>
+              <th>Email</th>
+              <th>Name</th>
+              <th>City</th>
+            </tr>
+            <tr>
+              <td>Peter</td>
+              <td>Griffin</td>
+              <td>$100</td>
+            </tr>
+            <tr>
+              <td>Lois</td>
+              <td>Griffin</td>
+              <td>$150</td>
+            </tr>
+            <tr>
+              <td>Joe</td>
+              <td>Swanson</td>
+              <td>$300</td>
+            </tr>
+            <tr>
+              <td>Cleveland</td>
+              <td>Brown</td>
+              <td>$250</td>
+            </tr>
+          </table>
     </div>
 </body>
 </html>

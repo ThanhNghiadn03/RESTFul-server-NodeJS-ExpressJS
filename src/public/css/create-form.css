@@ -1,0 +1,21 @@
+* {
+    margin: 0px;
+  }
+  .form-user {
+    margin: 0 auto;
+    max-width: 30%;
+    margin-top: 30px;
+  }
+  
+  .input-group {
+    margin: 20px;
+  }
+  
+  label {
+    margin-right: 15px;
+  }
+  
+  button {
+    padding: 10px;
+    cursor: pointer;
+  }

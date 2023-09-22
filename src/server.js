@@ -17,13 +17,6 @@ configViewEngine(app)
 app.use('/',webRouter)
 
 
-database.query(
-  'select * from Users',
-  function(err, results, fields) {
-    console.log("----results: ",results); // results contains rows returned by server
-  }
-);
-
 app.listen(port, hostname, () => {
     console.log(`web is running on port ${port}`)
 })
