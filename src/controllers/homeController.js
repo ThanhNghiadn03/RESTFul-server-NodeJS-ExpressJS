@@ -11,15 +11,22 @@ const getCreateForm = (req,res) => {
 }
 
 const getEditForm = async(req,res) => {
-    let id= req.query.id;
+    let id= req.params.id;
+    console.log(id);
     let results = await getUserByID(id);
     return res.render('edit.ejs',{user:results});
 }
 
-const getDelete = async(req,res) => {
-    let id = req.query.id;
+const postDelete = async(req,res) => {
+    let id = req.params.id;
+    let user = await getUserByID(id);
+    res.render('confirm-delete.ejs',{user});
+}
+
+const postHandleDelete = async (req, res) => {
+    let id = req.body.id;
     await deleteUserByID(id);
-    return getHomePage(req,res);
+    res.redirect('/');
 }
 
 const postCreateUser = async(req, res) => {
@@ -27,7 +34,7 @@ const postCreateUser = async(req, res) => {
     let name = req.body.name;
     let city = req.body.city;
     await createUser(email,name,city);
-    return getHomePage(req,res);
+    res.redirect('/');
 }
 
 const postEditUser = async(req, res) => {
@@ -36,7 +43,7 @@ const postEditUser = async(req, res) => {
     let email = req.body.email;
     let city = req.body.city;
     await editUserByID(id,name,email,city);
-    return getHomePage(req,res);
+    res.redirect('/');
 }
 
 module.exports = {
@@ -45,5 +52,6 @@ module.exports = {
     getCreateForm: getCreateForm,
     getEditForm:getEditForm,
     postEditUser: postEditUser,
-    getDelete: getDelete
+    postDelete: postDelete,
+    postHandleDelete: postHandleDelete
 }

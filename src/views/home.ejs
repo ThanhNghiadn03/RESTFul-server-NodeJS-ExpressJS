@@ -6,9 +6,9 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>Home</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='css/home.css'>
-  <link rel="stylesheet" href="css/navbar.css">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel='stylesheet' type='text/css' media='screen' href='display-create/home.css'>
+  <link rel="stylesheet" href="display-create/navbar.css">
+  <link rel="stylesheet" href="display-create/styles.css">
 </head>
 
 <body>
@@ -39,11 +39,14 @@
           <td>
             <%=listUser[i].city%>
           </td>
-          <td><button><a href="/edit?id=<%=listUser[i].id%>">Edit</a></button></td>
+          <td><button><a href="/edit/<%=listUser[i].id%>">Edit</a></button></td>
           <td>
-            <button>
+            <!-- <button>
               <a href="/delete?id=<%=listUser[i].id%>">Delete</a>
-            </button>
+            </button> -->
+            <form action="/delete/<%=listUser[i].id%>" method="post">
+              <button>Delete</button>
+            </form>
           </td>
         </tr>
         <%}%>
