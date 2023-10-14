@@ -16,6 +16,8 @@ configViewEngine(app)
 //Khai báo routes
 app.use('/',webRouter)
 
+database();
+
 
 app.listen(port, hostname, () => {
     console.log(`web is running on port ${port}`)

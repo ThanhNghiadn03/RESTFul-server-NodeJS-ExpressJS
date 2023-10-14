@@ -1,15 +1,13 @@
-// const mysql = require('mysql2/promise');
-// require('dotenv').config();
+const mongoose = require('mongoose');
+require('dotenv').config();
 
-// const pool = mysql.createPool({
-//   host: process.env.DB_HOST,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASSWORD,
-//   database: process.env.DB_NAME,
-//   port: process.env.DB_PORT,
-//   waitForConnections: true,
-//   connectionLimit: 10,
-//   queueLimit: 0,
-// });
+const connection = async() => {
+  try {
+    await mongoose.connect('mongodb://root:123456@localhost:27018');
+    console.log(">>>> Connected ??? ",mongoose.connection.readyState);
+  } catch (error) {
+    console.log('>>>> Error connection DB: ',error);
+  }
+}
 
-// module.exports = pool;
+module.exports = connection;
