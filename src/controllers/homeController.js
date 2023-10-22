@@ -12,9 +12,8 @@ const getCreateForm = (req,res) => {
 
 const getEditForm = async(req,res) => {
     let id= req.params.id;
-    console.log(id);
-    let results = await getUserByID(id);
-    return res.render('edit.ejs',{user:results});
+    let result = await getUserByID(id);
+    return res.render('edit.ejs',{user:result});
 }
 
 const postDelete = async(req,res) => {

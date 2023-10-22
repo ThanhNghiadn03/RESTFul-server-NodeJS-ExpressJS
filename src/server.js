@@ -1,6 +1,7 @@
 // Version Express
 require('dotenv').config();
 const express = require('express'); 
+const mongoose = require('mongoose');
 const {configStaticFile, configViewEngine} = require('./config/viewEngine')
 const app = express();
 const webRouter = require('./routes/web')
@@ -14,11 +15,15 @@ configStaticFile(app)
 configViewEngine(app)
 
 //Khai báo routes
-app.use('/',webRouter)
+app.use('/',webRouter);
 
-database();
-
-
-app.listen(port, hostname, () => {
-    console.log(`web is running on port ${port}`)
-})
+(async() => {
+    try {
+        await database();
+        app.listen(port, hostname, () => {
+            console.log(`web is running on port ${port}`)
+        })
+    } catch (error) {
+        console.log(">>>> Error start server: ",error);
+    }
+})()
