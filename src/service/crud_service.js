@@ -12,23 +12,23 @@ const getUserByID = async (id) => {
 }
 
 const editUserByID = async(id,name,email,city) => {
-    await database.query (
-        "UPDATE Users SET name = ?, email = ?, city = ? WHERE id = ? ", [name,email,city,id]
-    );
+    let condition = {_id : id};
+    let update = {name: name, email: email, city: city};
+    return await User.updateOne(condition,update);
 }
 
 const createUser = async (email,name,city) => {
-    await User.create({
+    let information = {
         email: email,
         name: name,
         city: city
-    })
+    };
+    return await User.create(information);
 }
 
 const deleteUserByID = async(id) => {
-    await database.query(
-        "DELETE FROM Users WHERE id = ?",id
-    );
+    let condition = {_id:id};
+    return await User.deleteOne(condition);
 }
 
 module.exports = {

@@ -4,7 +4,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const {configStaticFile, configViewEngine} = require('./config/viewEngine')
 const app = express();
-const webRouter = require('./routes/web')
+const webRouter = require('./routes/web');
+const apiRouter = require('./routes/api');
 const database = require('./config/database')//connection
 const port = process.env.PORT || 8080;
 const hostname = process.env.HOST_NAME;
@@ -16,6 +17,8 @@ configViewEngine(app)
 
 //Khai báo routes
 app.use('/',webRouter);
+app.use('/v1/api',apiRouter);
+
 
 (async() => {
     try {
